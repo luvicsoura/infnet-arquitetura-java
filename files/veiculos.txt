@@ -1,0 +1,20 @@
+21;Carro popular;39900;true;Fiat;Uno;2023;V
+22;Carro médio;69900;true;Volkswagen;Gol;2023;V
+23;Carro sedan;89900;true;GM;Onix;2023;V
+24;SUV compacto;119900;true;Hyundai;Creta;2023;V
+25;SUV médio;149900;true;Toyota;Corolla Cross;2023;V
+26;Pick-up compacta;179900;true;Fiat;Strada;2023;V
+27;Pick-up média;229900;true;Ford;Ranger;2023;V
+28;Carro elétrico;129900;true;Tesla;Model 3;2023;V
+29;Carro híbrido;109900;true;Toyota;Prius;2023;V
+30;Motocicleta popular;19900;true;Honda;CG 160;2023;V
+31;Motocicleta esportiva;39900;true;Yamaha;MT-03;2023;V
+32;Motocicleta custom;49900;true;Harley-Davidson;Sportster 883;2023;V
+33;Carro de luxo;599900;true;BMW;X5;2023;V
+34;Carro esportivo;799900;true;Ferrari;Roma;2023;V
+35;Carro superesportivo;1299900;true;Lamborghini;Huracan;2023;V
+36;Jeep;299900;true;Jeep;Compass;2023;V
+37;Van;199900;true;Fiat;Doblo;2023;V
+38;Micro-ônibus;249900;true;Chevrolet;Spin;2023;V
+39;Ônibus;399900;true;Marcopolo;G7;2023;V
+40;Caminhão;499900;true;Volvo;FH;2023;V

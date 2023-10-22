@@ -37,4 +37,14 @@ public class Livro extends Produto {
 	public void setAnoPublicacao(int anoPublicacao) {
 		this.anoPublicacao = anoPublicacao;
 	}
+
+	@Override
+	public String toString() {
+		return String.format(
+				"Livro{id=%d, título=%s, preço=%.2f, ano=%d}",
+				this.getCodigo(),
+				titulo,
+				this.getPreco(),
+				anoPublicacao);
+	}
 }
