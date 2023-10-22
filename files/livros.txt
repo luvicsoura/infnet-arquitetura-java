@@ -1,0 +1,20 @@
+1;O Pequeno Príncipe;49.90;true;Antoine de Saint-Exupéry;Companhia das Letras;1943
+2;Dom Quixote;39.90;true;Miguel de Cervantes;Martin Claret;1605
+3;1984;29.90;true;George Orwell;Companhia das Letras;1949
+4;A Origem das Espécies;39.90;true;Charles Darwin;Martin Claret;1859
+5;O Senhor dos Anéis;59.90;true;J.R.R. Tolkien;HarperCollins;1954-1955
+6;A Divina Comédia;39.90;true;Dante Alighieri;Martin Claret;1308-1321
+7;O Código Da Vinci;39.90;true;Dan Brown;Planeta;2003
+8;O Hobbit;29.90;true;J.R.R. Tolkien;HarperCollins;1937
+9;O Apanhador no Campo de Centeio;29.90;true;J.D. Salinger;Companhia das Letras;1951
+10;O Príncipezinho;29.90;true;Antoine de Saint-Exupéry;Companhia das Letras;1943
+11;O Senhor dos Anéis: A Sociedade do Anel;29.90;true;J.R.R. Tolkien;HarperCollins;1954
+12;O Senhor dos Anéis: As Duas Torres;29.90;true;J.R.R. Tolkien;HarperCollins;1954
+13;O Senhor dos Anéis: O Retorno do Rei;29.90;true;J.R.R. Tolkien;HarperCollins;1955
+14;A Revolução dos Bichos;29.90;true;George Orwell;Companhia das Letras;1945
+15;O Alquimista;29.90;true;Paulo Coelho;HarperCollins;1988
+16;O Monge e o Executivo;29.90;true;James C. Hunter;HarperCollins;1997
+17;O Homem Magro;29.90;true;Haruki Murakami;Companhia das Letras;1999
+18;O Livro do Desassossego;29.90;true;Fernando Pessoa;Companhia das Letras;1913-1935
+19;As Crônicas de Nárnia;49.90;true;C.S. Lewis;Martin Claret;1950-1956
+20;Harry Potter e a Pedra Filosofal;39.90;true;J.K. Rowling;Rocco;1997

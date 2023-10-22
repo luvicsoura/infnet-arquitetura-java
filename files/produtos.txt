@@ -1,0 +1,4 @@
+123;descricao 1;true;99;primeira caracteristica;true;A
+345;descricao 3;true;77;10;primeira marca;E
+234;descricao 2;false;88;segunda caracteristica;false;A
+456;descricao 4;true;66;20;segunda marca;E
