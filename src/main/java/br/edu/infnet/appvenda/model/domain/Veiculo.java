@@ -1,5 +1,10 @@
 package br.edu.infnet.appvenda.model.domain;
 
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("V")
 public class Veiculo extends Produto {
 	private String marca;
 	private String modelo;

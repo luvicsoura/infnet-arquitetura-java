@@ -1,5 +1,10 @@
 package br.edu.infnet.appvenda.model.domain;
 
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("L")
 public class Livro extends Produto {
 	private String autor;
 	private String editora;
