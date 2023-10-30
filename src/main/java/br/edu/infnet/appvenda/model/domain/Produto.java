@@ -7,6 +7,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,6 +25,10 @@ public class Produto {
 	private int codigo;
 	private float preco;
 	private boolean estoque;
+
+	@ManyToOne
+	@JoinColumn(name = "idVendedor")
+	private Vendedor vendedor;
 
 	@Override
 	public String toString() {

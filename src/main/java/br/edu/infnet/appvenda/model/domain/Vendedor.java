@@ -2,12 +2,14 @@ package br.edu.infnet.appvenda.model.domain;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "TVendedor")
@@ -18,7 +20,8 @@ public class Vendedor {
 	private String nome;
 	private String cpf;
 	private String email;
-	@Transient
+
+	@OneToMany(mappedBy = "vendedor", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Produto> produtos;
 
 	@Override
@@ -55,6 +58,8 @@ public class Vendedor {
 	}
 
 	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
+		for (Produto produto : produtos) {
+			produto.setVendedor(this);
+		}
 	}
 }
