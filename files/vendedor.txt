@@ -1,4 +1,7 @@
-Elberth Moraes;12312312312;elberth@moraes.com
-Huguinho;45645645645;hugo@hugo.com
-Zezinho;34534534534;jose@jose.com
-Luizinho;23423423423;luiz@luiz.com
+Elberth Moraes;123.123.123-12;elberth@moraes.com;20010020
+E;999.123.123-12;elberth@moraes.com;20010020
+Huguinho;456.456.456-45;hugo@hugo.com;20010020
+Zezinho;345.345.345-34;jose@jose.com;20010020
+Luizinho;234.234.234-23;luiz@luiz.com;22241900
+L;999.234.234-23;luiza@luiz.com;20010020
+Luiza;123.234.234-23;luiza@luiz.com;20010020

@@ -2,6 +2,7 @@ package br.edu.infnet.appvenda;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -12,17 +13,27 @@ import org.springframework.stereotype.Component;
 import br.edu.infnet.appvenda.model.domain.Livro;
 import br.edu.infnet.appvenda.model.domain.Produto;
 import br.edu.infnet.appvenda.model.domain.Veiculo;
+import br.edu.infnet.appvenda.model.domain.Vendedor;
 import br.edu.infnet.appvenda.model.service.ProdutoService;
+import br.edu.infnet.appvenda.model.service.VendedorService;
 
-@Order(0)
+@Order(2)
 @Component
 public class ProdutoLoader implements ApplicationRunner {
 
 	@Autowired
 	private ProdutoService produtoService;
 
+	@Autowired
+	private VendedorService vendedorService;
+
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
+		Collection<Produto> produtosExistentes = produtoService.obterLista();
+
+		if (produtosExistentes.size() > 0) {
+			return;
+		}
 
 		FileReader file = new FileReader("files/produtos.txt");
 		BufferedReader leitura = new BufferedReader(file);
@@ -30,6 +41,8 @@ public class ProdutoLoader implements ApplicationRunner {
 		String linha = leitura.readLine();
 
 		String[] campos = null;
+
+		Vendedor vendedor = new Vendedor();
 
 		while (linha != null) {
 
@@ -48,6 +61,9 @@ public class ProdutoLoader implements ApplicationRunner {
 					livro.setEditora(campos[5]);
 					livro.setAnoPublicacao(Integer.valueOf(campos[6]));
 
+					vendedor.setId(Integer.valueOf(campos[7]));
+					livro.setVendedor(vendedor);
+
 					produtoService.incluir(livro);
 
 					break;
@@ -65,6 +81,9 @@ public class ProdutoLoader implements ApplicationRunner {
 					veiculo.setModelo(campos[5]);
 					veiculo.setAno(Integer.valueOf(campos[6]));
 
+					vendedor.setId(Integer.valueOf(campos[7]));
+					veiculo.setVendedor(vendedor);
+
 					produtoService.incluir(veiculo);
 
 					break;
@@ -76,8 +95,10 @@ public class ProdutoLoader implements ApplicationRunner {
 			linha = leitura.readLine();
 		}
 
-		for (Produto produto : produtoService.obterLista()) {
-			System.out.println("[Produto] " + produto);
+		for (Vendedor v : vendedorService.obterLista()) {
+			for (Produto produto : produtoService.obterLista(v)) {
+				System.out.println("[Produto] " + produto);
+			}
 		}
 
 		leitura.close();
