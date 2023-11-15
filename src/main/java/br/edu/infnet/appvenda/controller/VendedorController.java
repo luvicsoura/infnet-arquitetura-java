@@ -13,22 +13,21 @@ public class VendedorController {
 
 	@Autowired
 	private AppController appController;
-	
+
 	@Autowired
 	private VendedorService vendedorService;
 
-
 	@GetMapping(value = "/vendedor/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
-		
+
 		vendedorService.excluir(id);
-		
+
 		return "redirect:/vendedor/lista";
 	}
-	
+
 	@GetMapping(value = "/vendedor/lista")
 	public String obterLista(Model model) {
-		
+
 		model.addAttribute("rota", "vendedor");
 		model.addAttribute("titulo", "Vendedores:");
 		model.addAttribute("listagem", vendedorService.obterLista());

@@ -21,6 +21,10 @@ public class VeiculoService {
 		return (Collection<Veiculo>) veiculoRepository.findAll();
 	}
 
+	public void excluir(Integer id) {
+		veiculoRepository.deleteById(id);
+	}
+
 	public long obterQtde() {
 		return veiculoRepository.count();
 	}

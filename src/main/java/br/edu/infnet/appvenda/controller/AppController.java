@@ -13,14 +13,22 @@ import br.edu.infnet.appvenda.model.service.VendedorService;
 @Controller
 public class AppController {
 
+	private final VendedorService vendedorService;
+	private final ProdutoService produtoService;
+	private final LivroService livroService;
+	private final VeiculoService veiculoService;
+
 	@Autowired
-	private VendedorService vendedorService;
-	@Autowired
-	private ProdutoService produtoService;
-	@Autowired
-	private LivroService livroService;
-	@Autowired
-	private VeiculoService veiculoService;
+	public AppController(
+			ProdutoService produtoService,
+			LivroService livroService,
+			VeiculoService veiculoService,
+			VendedorService vendedorService) {
+		this.produtoService = produtoService;
+		this.livroService = livroService;
+		this.veiculoService = veiculoService;
+		this.vendedorService = vendedorService;
+	}
 
 	@GetMapping(value = "/")
 	public String showHome(Model model) {
@@ -42,7 +50,7 @@ public class AppController {
 		return showHome(model);
 	}
 
-	@GetMapping(value = "/livro/lista")
+	@GetMapping(value = "/livros/lista")
 	public String obterListaAlimenticio(Model model) {
 
 		model.addAttribute("titulo", "Livros:");
@@ -51,7 +59,7 @@ public class AppController {
 		return showHome(model);
 	}
 
-	@GetMapping(value = "/veiculo/lista")
+	@GetMapping(value = "/veiculos/lista")
 	public String obterListaEletronico(Model model) {
 
 		model.addAttribute("titulo", "Veículos:");

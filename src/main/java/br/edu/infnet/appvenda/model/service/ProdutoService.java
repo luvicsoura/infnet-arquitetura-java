@@ -31,6 +31,10 @@ public class ProdutoService {
 		return (Collection<Produto>) produtoRepository.obterLista(id);
 	}
 
+	public void excluir(Integer id) {
+		produtoRepository.deleteById(id);
+	}
+
 	public long obterQtde() {
 		return produtoRepository.count();
 	}
