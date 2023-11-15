@@ -16,6 +16,7 @@ import br.edu.infnet.appvenda.model.domain.Veiculo;
 import br.edu.infnet.appvenda.model.domain.Vendedor;
 import br.edu.infnet.appvenda.model.service.ProdutoService;
 import br.edu.infnet.appvenda.model.service.VendedorService;
+import jakarta.validation.ConstraintViolationException;
 
 @Order(2)
 @Component
@@ -64,7 +65,11 @@ public class ProdutoLoader implements ApplicationRunner {
 					vendedor.setId(Integer.valueOf(campos[7]));
 					livro.setVendedor(vendedor);
 
-					produtoService.incluir(livro);
+					try {
+						produtoService.incluir(livro);
+					} catch (ConstraintViolationException e) {
+						FileLogger.logException("[Produto:Livro] " + vendedor + " - " + e.getMessage());
+					}
 
 					break;
 
@@ -84,7 +89,11 @@ public class ProdutoLoader implements ApplicationRunner {
 					vendedor.setId(Integer.valueOf(campos[7]));
 					veiculo.setVendedor(vendedor);
 
-					produtoService.incluir(veiculo);
+					try {
+						produtoService.incluir(veiculo);
+					} catch (ConstraintViolationException e) {
+						FileLogger.logException("[Produto:Veiculo] " + vendedor + " - " + e.getMessage());
+					}
 
 					break;
 
