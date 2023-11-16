@@ -2,6 +2,7 @@ package br.edu.infnet.appvenda;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -12,17 +13,34 @@ import org.springframework.stereotype.Component;
 import br.edu.infnet.appvenda.model.domain.Livro;
 import br.edu.infnet.appvenda.model.domain.Produto;
 import br.edu.infnet.appvenda.model.domain.Veiculo;
+import br.edu.infnet.appvenda.model.domain.Vendedor;
 import br.edu.infnet.appvenda.model.service.ProdutoService;
+import br.edu.infnet.appvenda.model.service.VendedorService;
+import jakarta.validation.ConstraintViolationException;
 
-@Order(0)
+@Order(2)
 @Component
 public class ProdutoLoader implements ApplicationRunner {
 
+	private final String SEPARADOR = ",";
+
+	private final ProdutoService produtoService;
+
+	private final VendedorService vendedorService;
+
 	@Autowired
-	private ProdutoService produtoService;
+	public ProdutoLoader(VendedorService vendedorService, ProdutoService produtoService) {
+		this.vendedorService = vendedorService;
+		this.produtoService = produtoService;
+	}
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
+		Collection<Produto> produtosExistentes = produtoService.obterLista();
+
+		if (!produtosExistentes.isEmpty()) {
+			return;
+		}
 
 		FileReader file = new FileReader("files/produtos.txt");
 		BufferedReader leitura = new BufferedReader(file);
@@ -31,9 +49,11 @@ public class ProdutoLoader implements ApplicationRunner {
 
 		String[] campos = null;
 
+		Vendedor vendedor = new Vendedor();
+
 		while (linha != null) {
 
-			campos = linha.split(";");
+			campos = linha.split(SEPARADOR);
 
 			switch (campos[7]) {
 				case "L":
@@ -48,7 +68,14 @@ public class ProdutoLoader implements ApplicationRunner {
 					livro.setEditora(campos[5]);
 					livro.setAnoPublicacao(Integer.valueOf(campos[6]));
 
-					produtoService.incluir(livro);
+					vendedor.setId(Integer.valueOf(campos[8]));
+					livro.setVendedor(vendedor);
+
+					try {
+						produtoService.incluir(livro);
+					} catch (ConstraintViolationException e) {
+						FileLogger.logException("[Produto:Livro] " + vendedor + " - " + e.getMessage());
+					}
 
 					break;
 
@@ -65,7 +92,14 @@ public class ProdutoLoader implements ApplicationRunner {
 					veiculo.setModelo(campos[5]);
 					veiculo.setAno(Integer.valueOf(campos[6]));
 
-					produtoService.incluir(veiculo);
+					vendedor.setId(Integer.valueOf(campos[8]));
+					veiculo.setVendedor(vendedor);
+
+					try {
+						produtoService.incluir(veiculo);
+					} catch (ConstraintViolationException e) {
+						FileLogger.logException("[Produto:Veiculo] " + vendedor + " - " + e.getMessage());
+					}
 
 					break;
 
@@ -76,8 +110,10 @@ public class ProdutoLoader implements ApplicationRunner {
 			linha = leitura.readLine();
 		}
 
-		for (Produto produto : produtoService.obterLista()) {
-			System.out.println("[Produto] " + produto);
+		for (Vendedor v : vendedorService.obterLista()) {
+			for (Produto produto : produtoService.obterLista(v)) {
+				System.out.println("[Produto] " + produto);
+			}
 		}
 
 		leitura.close();

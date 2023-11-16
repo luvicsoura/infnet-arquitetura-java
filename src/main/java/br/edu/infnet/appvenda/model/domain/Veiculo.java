@@ -1,13 +1,22 @@
 package br.edu.infnet.appvenda.model.domain;
 
-import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 
 @Entity
-@DiscriminatorValue("V")
+@Table(name = "TVeiculo")
 public class Veiculo extends Produto {
+	@NotNull(message = "A marca deve ser informada.")
+	@Size(min = 3, max = 50, message = "A marca deve ter entre 3 e 50 caracteres.")
 	private String marca;
+	@NotNull(message = "O modelo deve ser informado.")
+	@Size(min = 3, max = 50, message = "O modelo deve ter entre 3 e 50 caracteres.")
 	private String modelo;
+	@NotNull(message = "O ano de fabricação deve ser informado.")
+	@Positive(message = "O ano deve ser maior que zero.")
 	private int ano;
 
 	public String getMarca() {

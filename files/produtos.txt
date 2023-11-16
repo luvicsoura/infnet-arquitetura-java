@@ -1,40 +1,40 @@
-1;O Pequeno Príncipe;49.90;true;Antoine de Saint-Exupéry;Companhia das Letras;1943;L
-2;Dom Quixote;39.90;true;Miguel de Cervantes;Martin Claret;1605;L
-3;1984;29.90;true;George Orwell;Companhia das Letras;1949;L
-4;A Origem das Espécies;39.90;true;Charles Darwin;Martin Claret;1859;L
-5;O Senhor dos Anéis;59.90;true;J.R.R. Tolkien;HarperCollins;1955;L
-6;A Divina Comédia;39.90;true;Dante Alighieri;Martin Claret;1321;L
-7;O Código Da Vinci;39.90;true;Dan Brown;Planeta;2003;L
-8;O Hobbit;29.90;true;J.R.R. Tolkien;HarperCollins;1937;L
-9;O Apanhador no Campo de Centeio;29.90;true;J.D. Salinger;Companhia das Letras;1951;L
-10;O Príncipezinho;29.90;true;Antoine de Saint-Exupéry;Companhia das Letras;1943;L
-11;O Senhor dos Anéis: A Sociedade do Anel;29.90;true;J.R.R. Tolkien;HarperCollins;1954;L
-12;O Senhor dos Anéis: As Duas Torres;29.90;true;J.R.R. Tolkien;HarperCollins;1954;L
-13;O Senhor dos Anéis: O Retorno do Rei;29.90;true;J.R.R. Tolkien;HarperCollins;1955;L
-14;A Revolução dos Bichos;29.90;true;George Orwell;Companhia das Letras;1945;L
-15;O Alquimista;29.90;true;Paulo Coelho;HarperCollins;1988;L
-16;O Monge e o Executivo;29.90;true;James C. Hunter;HarperCollins;1997;L
-17;O Homem Magro;29.90;true;Haruki Murakami;Companhia das Letras;1999;L
-18;O Livro do Desassossego;29.90;true;Fernando Pessoa;Companhia das Letras;1935;L
-19;As Crônicas de Nárnia;49.90;true;C.S. Lewis;Martin Claret;1956;L
-20;Harry Potter e a Pedra Filosofal;39.90;true;J.K. Rowling;Rocco;1997;L
-21;Carro popular;39900;true;Fiat;Uno;2023;V
-22;Carro médio;69900;true;Volkswagen;Gol;2023;V
-23;Carro sedan;89900;true;GM;Onix;2023;V
-24;SUV compacto;119900;true;Hyundai;Creta;2023;V
-25;SUV médio;149900;true;Toyota;Corolla Cross;2023;V
-26;Pick-up compacta;179900;true;Fiat;Strada;2023;V
-27;Pick-up média;229900;true;Ford;Ranger;2023;V
-28;Carro elétrico;129900;true;Tesla;Model 3;2023;V
-29;Carro híbrido;109900;true;Toyota;Prius;2023;V
-30;Motocicleta popular;19900;true;Honda;CG 160;2023;V
-31;Motocicleta esportiva;39900;true;Yamaha;MT-03;2023;V
-32;Motocicleta custom;49900;true;Harley-Davidson;Sportster 883;2023;V
-33;Carro de luxo;599900;true;BMW;X5;2023;V
-34;Carro esportivo;799900;true;Ferrari;Roma;2023;V
-35;Carro superesportivo;1299900;true;Lamborghini;Huracan;2023;V
-36;Jeep;299900;true;Jeep;Compass;2023;V
-37;Van;199900;true;Fiat;Doblo;2023;V
-38;Micro-ônibus;249900;true;Chevrolet;Spin;2023;V
-39;Ônibus;399900;true;Marcopolo;G7;2023;V
-40;Caminhão;499900;true;Volvo;FH;2023;V
+1,O Pequeno Príncipe,49.90,TRUE,Antoine de Saint-Exupéry,Companhia das Letras,1943,L,1
+2,Dom Quixote,39.90,TRUE,Miguel de Cervantes,Martin Claret,1605,L,2
+3,1984,29.90,TRUE,George Orwell,Companhia das Letras,1949,L,3
+4,A Origem das Espécies,39.90,TRUE,Charles Darwin,Martin Claret,1859,L,4
+5,O Senhor dos Anéis,59.90,TRUE,J.R.R. Tolkien,HarperCollins,1955,L,5
+6,A Divina Comédia,39.90,TRUE,Dante Alighieri,Martin Claret,1321,L,1
+7,O Código Da Vinci,39.90,TRUE,Dan Brown,Planeta,2003,L,2
+8,O Hobbit,29.90,TRUE,J.R.R. Tolkien,HarperCollins,1937,L,3
+9,O Apanhador no Campo de Centeio,29.90,TRUE,J.D. Salinger,Companhia das Letras,1951,L,4
+10,O Príncipezinho,29.90,TRUE,Antoine de Saint-Exupéry,Companhia das Letras,1943,L,5
+11,O Senhor dos Anéis: A Sociedade do Anel,29.90,TRUE,J.R.R. Tolkien,HarperCollins,1954,L,1
+12,O Senhor dos Anéis: As Duas Torres,29.90,TRUE,J.R.R. Tolkien,HarperCollins,1954,L,2
+13,O Senhor dos Anéis: O Retorno do Rei,29.90,TRUE,J.R.R. Tolkien,HarperCollins,1955,L,3
+14,A Revolução dos Bichos,29.90,TRUE,George Orwell,Companhia das Letras,1945,L,4
+15,O Alquimista,29.90,TRUE,Paulo Coelho,HarperCollins,1988,L,5
+16,O Monge e o Executivo,29.90,TRUE,James C. Hunter,HarperCollins,1997,L,1
+17,O Homem Magro,29.90,TRUE,Haruki Murakami,Companhia das Letras,1999,L,2
+18,O Livro do Desassossego,29.90,TRUE,Fernando Pessoa,Companhia das Letras,1935,L,3
+19,As Crônicas de Nárnia,49.90,TRUE,C.S. Lewis,Martin Claret,1956,L,4
+20,Harry Potter e a Pedra Filosofal,39.90,TRUE,J.K. Rowling,Rocco,1997,L,5
+21,Carro popular,39900,TRUE,Fiat,Uno,2023,V,1
+22,Carro médio,69900,TRUE,Volkswagen,Gol,2023,V,2
+23,Carro sedan,89900,TRUE,GM,Onix,2023,V,3
+24,SUV compacto,119900,TRUE,Hyundai,Creta,2023,V,4
+25,SUV médio,149900,TRUE,Toyota,Corolla Cross,2023,V,5
+26,Pick-up compacta,179900,TRUE,Fiat,Strada,2023,V,1
+27,Pick-up média,229900,TRUE,Ford,Ranger,2023,V,2
+28,Carro elétrico,129900,TRUE,Tesla,Model 3,2023,V,3
+29,Carro híbrido,109900,TRUE,Toyota,Prius,2023,V,4
+30,Motocicleta popular,19900,TRUE,Honda,CG 160,2023,V,5
+31,Motocicleta esportiva,39900,TRUE,Yamaha,MT-03,2023,V,1
+32,Motocicleta custom,49900,TRUE,Harley-Davidson,Sportster 883,2023,V,2
+33,Carro de luxo,599900,TRUE,BMW,X5,2023,V,3
+34,Carro esportivo,799900,TRUE,Ferrari,Roma,2023,V,4
+35,Carro superesportivo,1299900,TRUE,Lamborghini,Huracan,2023,V,5
+36,Jeep,299900,TRUE,Jeep,Compass,2023,V,1
+37,Van,199900,TRUE,Fiat,Doblo,2023,V,2
+38,Micro-ônibus,249900,TRUE,Chevrolet,Spin,2023,V,3
+39,Ônibus,399900,TRUE,Marcopolo,G7,2023,V,4
+40,Caminhão,499900,TRUE,Volvo,FH,2023,V,5
