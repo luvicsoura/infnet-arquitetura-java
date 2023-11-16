@@ -36,14 +36,14 @@ public class AppController {
 		model.addAttribute("qtdeVendedor", vendedorService.obterQtde());
 		model.addAttribute("qtdeProduto", produtoService.obterQtde());
 		model.addAttribute("qtdeLivros", livroService.obterQtde());
-		model.addAttribute("qtdeEletronico", veiculoService.obterQtde());
+		model.addAttribute("qtdeVeiculos", veiculoService.obterQtde());
 
 		return "home";
 	}
 
 	@GetMapping(value = "/produto/lista")
 	public String obterListaProduto(Model model) {
-
+		model.addAttribute("rota", "produto");
 		model.addAttribute("titulo", "Produtos:");
 		model.addAttribute("listagem", produtoService.obterLista());
 
@@ -52,7 +52,7 @@ public class AppController {
 
 	@GetMapping(value = "/livros/lista")
 	public String obterListaAlimenticio(Model model) {
-
+		model.addAttribute("rota", "livros");
 		model.addAttribute("titulo", "Livros:");
 		model.addAttribute("listagem", livroService.obterLista());
 
@@ -61,7 +61,7 @@ public class AppController {
 
 	@GetMapping(value = "/veiculos/lista")
 	public String obterListaEletronico(Model model) {
-
+		model.addAttribute("rota", "veiculos");
 		model.addAttribute("titulo", "Veículos:");
 		model.addAttribute("listagem", veiculoService.obterLista());
 

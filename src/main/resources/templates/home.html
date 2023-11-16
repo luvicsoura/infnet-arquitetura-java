@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>AppVenda</title>
+</head>
+</body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	<div class="container-fluid">
+		<ul class="navbar-nav">
+			<li class="nav-item"><a class="nav-link active" href="/">AppVenda</a>
+			</li>
+			<li class="nav-item"><a class="nav-link" href="/vendedor/lista">Vendedores</a>
+			</li>
+			<li class="nav-item"><a class="nav-link" href="/produto/lista">Produtos</a>
+			</li>
+			<li class="nav-item"><a class="nav-link" href="/livros/lista">Livros</a></li>
+			<li class="nav-item"><a class="nav-link" href="/veiculos/lista">Veículos</a></li>
+		</ul>
+		<th:if test="${not empty listagem}">
+			<form class="d-flex" action="/${rota}/pesquisar">
+				<input class="form-control me-2" type="text" name="campoBusca" placeholder="Search">
+				<button class="btn btn-primary" type="submit">Search</button>
+			</form>
+		</th:if>
+	</div>
+</nav>
+
+<div class="container mt-3">
+
+	<span class="badge rounded-pill bg-primary">
+		Vendedor: <span th:text="${qtdeVendedor}" />
+	</span>
+	<span class="badge rounded-pill bg-secondary">
+		Produto: <span th:text="${qtdeProduto}" />
+	</span>
+	<span class="badge rounded-pill bg-success">
+		Livros: <span th:text="${qtdeLivros}" />
+	</span>
+	<span class="badge rounded-pill bg-danger">
+		Veículos: <span th:text="${qtdeVeiculos}" />
+	</span>
+
+	<div th:if="${!#lists.isEmpty(listagem)}">
+		<h2>AppVenda</h2>
+		<p>Gestão de vendas de <span th:text="${titulo}" />:</p>
+		<table class="table">
+			<thead class="table-dark">
+				<tr>
+					<div th:if="${rota == 'vendedor'}">
+						<td>Nome</td>
+						<td>Email</td>
+						<td>CPF</td>
+					</div>
+					<div th:if="${rota == 'produto'}">
+						<td>Id</td>
+						<td>Descrição</td>
+						<td>Código</td>
+						<td>Estoque</td>
+						<td>Preço</td>
+					</div>
+					<div th:if="${rota == 'livros'}">
+						<td>Id</td>
+						<td>Título</td>
+						<td>Código</td>
+						<td>Estoque</td>
+						<td>Preço</td>
+						<td>Autor</td>
+						<td>Editora</td>
+						<td>Ano da publicação</td>
+						<td>Descrição</td>
+					</div>
+					<div th:if="${rota == 'veiculos'}">
+						<td>Id</td>
+						<td>Nome do Produto</td>
+						<td>Código</td>
+						<td>Estoque</td>
+						<td>Preço</td>
+						<td>Descrição</td>
+						<td>Preço</td>
+						<td>Marca</td>
+						<td>Modelo</td>
+						<td>Ano</td>
+					</div>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="item : ${listagem}">
+					<div th:if="${rota == 'vendedor'}">
+						<td th:text="${item.nome}" />
+						<td th:text="${item.email}" />
+						<td th:text="${item.cpf}" />
+					</div>
+					<div th:if="${rota == 'produto'}">
+						<td th:text="${item.id}" />
+						<td th:text="${item.descricao}" />
+						<td th:text="${item.codigo}" />
+						<td th:text="${item.estoque}" />
+						<td th:text="${item.preco}" />
+					</div>
+					<div th:if="${rota == 'livros'}">
+						<td th:text="${item.id}" />
+						<td th:text="${item.titulo}" />
+						<td th:text="${item.codigo}" />
+						<td th:text="${item.estoque}" />
+						<td th:text="${item.preco}" />
+						<td th:text="${item.autor}" />
+						<td th:text="${item.editora}" />
+						<td th:text="${item.anoPublicacao}" />
+						<td th:text="${item.descricao}" />
+					</div>
+					<div th:if="${rota == 'veiculos'}">
+						<td th:text="${item.id}" />
+						<td th:text="${item.descricao}" />
+						<td th:text="${item.codigo}" />
+						<td th:text="${item.estoque}" />
+						<td th:text="${item.preco}" />
+						<td th:text="${item.marca}" />
+						<td th:text="${item.modelo}" />
+						<td th:text="${item.ano}" />
+					</div>
+					<td>
+						<a th:href="@{/{rota}/{itemId}/excluir(rota=${rota}, itemId=${item.id})}">excluir</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+	<!-- <div th:if="${!#lists.isEmpty(listagem)}">
+		<hr>
+		<form action="/informacao/incluir" method="post">
+			<div class="row">
+				<div class="col">
+					<input type="text" class="form-control" placeholder="Entre com o campo" name="campo">
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" placeholder="Entre com a descrição" name="descricao">
+				</div>
+				<div class="col">
+					<button class="btn btn-primary" type="submit">Cadastrar</button>
+				</div>
+			</div>
+		</form>
+		<div th:if="${!#lists.isEmpty(informacoes)}">
+			<hr>
+			<table class="table">
+				<thead class="table-dark">
+					<tr>
+						<th>Informações:</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="item : ${informacoes}">
+						<td th:text="${item}" />
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div> -->
+
+	<!-- <th:if test="${not empty objeto}">
+		<hr>
+		<div class="alert alert-success">
+			<strong>Sucesso!</strong> ${objeto}
+		</div>
+	</th:if> -->
+</div>
+</body>
+
+</html>

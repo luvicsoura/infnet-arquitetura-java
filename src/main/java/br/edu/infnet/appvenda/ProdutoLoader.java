@@ -22,17 +22,23 @@ import jakarta.validation.ConstraintViolationException;
 @Component
 public class ProdutoLoader implements ApplicationRunner {
 
-	@Autowired
-	private ProdutoService produtoService;
+	private final String SEPARADOR = ",";
+
+	private final ProdutoService produtoService;
+
+	private final VendedorService vendedorService;
 
 	@Autowired
-	private VendedorService vendedorService;
+	public ProdutoLoader(VendedorService vendedorService, ProdutoService produtoService) {
+		this.vendedorService = vendedorService;
+		this.produtoService = produtoService;
+	}
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		Collection<Produto> produtosExistentes = produtoService.obterLista();
 
-		if (produtosExistentes.size() > 0) {
+		if (!produtosExistentes.isEmpty()) {
 			return;
 		}
 
@@ -47,7 +53,7 @@ public class ProdutoLoader implements ApplicationRunner {
 
 		while (linha != null) {
 
-			campos = linha.split(";");
+			campos = linha.split(SEPARADOR);
 
 			switch (campos[7]) {
 				case "L":
@@ -62,7 +68,7 @@ public class ProdutoLoader implements ApplicationRunner {
 					livro.setEditora(campos[5]);
 					livro.setAnoPublicacao(Integer.valueOf(campos[6]));
 
-					vendedor.setId(Integer.valueOf(campos[7]));
+					vendedor.setId(Integer.valueOf(campos[8]));
 					livro.setVendedor(vendedor);
 
 					try {
@@ -86,7 +92,7 @@ public class ProdutoLoader implements ApplicationRunner {
 					veiculo.setModelo(campos[5]);
 					veiculo.setAno(Integer.valueOf(campos[6]));
 
-					vendedor.setId(Integer.valueOf(campos[7]));
+					vendedor.setId(Integer.valueOf(campos[8]));
 					veiculo.setVendedor(vendedor);
 
 					try {
