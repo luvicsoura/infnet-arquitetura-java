@@ -1,9 +1,13 @@
 package br.edu.infnet.appvenda.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.server.ResponseStatusException;
 
 import br.edu.infnet.appvenda.model.service.LivroService;
 import br.edu.infnet.appvenda.model.service.ProdutoService;
@@ -46,24 +50,6 @@ public class AppController {
 		model.addAttribute("rota", "produto");
 		model.addAttribute("titulo", "Produtos:");
 		model.addAttribute("listagem", produtoService.obterLista());
-
-		return showHome(model);
-	}
-
-	@GetMapping(value = "/livros/lista")
-	public String obterListaAlimenticio(Model model) {
-		model.addAttribute("rota", "livros");
-		model.addAttribute("titulo", "Livros:");
-		model.addAttribute("listagem", livroService.obterLista());
-
-		return showHome(model);
-	}
-
-	@GetMapping(value = "/veiculos/lista")
-	public String obterListaEletronico(Model model) {
-		model.addAttribute("rota", "veiculos");
-		model.addAttribute("titulo", "Veículos:");
-		model.addAttribute("listagem", veiculoService.obterLista());
 
 		return showHome(model);
 	}
