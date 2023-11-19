@@ -183,11 +183,11 @@
 		<h3>Incluir Livro</h3>
 		<div class="form-group">
 			<label for="titulo">Título:</label>
-			<input type="text" class="form-control" id="titulo" name="titulo">
+			<input type="text" class="form-control" id="titulo" name="titulo" minlength="3" maxlength="200">
 		</div>
 		<div class="form-group">
 			<label for="codigo">Código:</label>
-			<input type="number" class="form-control" id="codigo" name="codigo">
+			<input type="number" class="form-control" id="codigo" name="codigo" min="0">
 		</div>
 		<div class="form-group">
 			<label>Estoque:</label>
@@ -206,19 +206,19 @@
 		</div>
 		<div class="form-group">
 			<label for="preco">Preço:</label>
-			<input type="number" class="form-control" id="preco" name="preco">
+			<input type="number" class="form-control" id="preco" name="preco" min="0.01" step="0.01">
 		</div>
 		<div class="form-group">
 			<label for="autor">Autor:</label>
-			<input type="text" class="form-control" id="autor" name="autor">
+			<input type="text" class="form-control" id="autor" name="autor" minlength="3" maxlength="150">
 		</div>
 		<div class="form-group">
 			<label for="editora">Editora:</label>
-			<input type="text" class="form-control" id="editora" name="editora">
+			<input type="text" class="form-control" id="editora" name="editora" minlength="3" maxlength="100">
 		</div>
 		<div class="form-group">
 			<label for="anoPublicacao">Ano da publicação:</label>
-			<input type="number" class="form-control" id="anoPublicacao" name="anoPublicacao">
+			<input type="number" class="form-control" id="anoPublicacao" name="anoPublicacao" min="1">
 		</div>
 		<div class="form-group">
 			<label for="descricao">Descrição:</label>
@@ -229,16 +229,16 @@
 
 	<form th:if="${rota == 'livros_unico'}" method="POST" th:action="@{'/livros/' + ${id}}">
 		<h3 th:text="${livro.titulo}" />
-		<a th:href="@{/livros}">Voltar</a>
+		<a href="/livros/lista">Voltar</a>
 		<a th:if="${!editar}" th:href="@{/livros/{itemId}/editar(rota=${rota}, itemId=${id})}">editar</a>
 		<div class="form-group">
 			<label for="titulo">Título:</label>
 			<input type="text" class="form-control" id="titulo" name="titulo" th:value="${livro.titulo}"
-				th:readonly="${!editar}">
+				th:readonly="${!editar}" minlength="3" maxlength="200">
 		</div>
 		<div class="form-group">
 			<label for="codigo">Código:</label>
-			<input type="number" class="form-control" id="codigo" name="codigo" th:value="${livro.codigo}"
+			<input type="number" class="form-control" id="codigo" name="codigo" min="0" th:value="${livro.codigo}"
 				th:readonly="${!editar}">
 		</div>
 		<div class="form-group">
@@ -260,27 +260,27 @@
 		</div>
 		<div class="form-group">
 			<label for="preco">Preço:</label>
-			<input type="number" class="form-control" id="preco" name="preco" th:value="${livro.preco}"
-				th:readonly="${!editar}">
+			<input type="number" class="form-control" id="preco" name="preco" min="0.01" step="0.01"
+				th:value="${livro.preco}" th:readonly="${!editar}">
 		</div>
 		<div class="form-group">
 			<label for="autor">Autor:</label>
-			<input type="text" class="form-control" id="autor" name="autor" th:value="${livro.autor}"
-				th:readonly="${!editar}">
+			<input type="text" class="form-control" id="autor" name="autor" minlength="3" maxlength="150"
+				th:value="${livro.autor}" th:readonly="${!editar}">
 		</div>
 		<div class="form-group">
 			<label for="editora">Editora:</label>
-			<input type="text" class="form-control" id="editora" name="editora" th:value="${livro.editora}"
-				th:readonly="${!editar}">
+			<input type="text" class="form-control" id="editora" name="editora" minlength="3" maxlength="100"
+				th:value="${livro.editora}" th:readonly="${!editar}">
 		</div>
 		<div class="form-group">
 			<label for="anoPublicacao">Ano da publicação:</label>
-			<input type="number" class="form-control" id="anoPublicacao" name="anoPublicacao"
+			<input type="number" class="form-control" id="anoPublicacao" name="anoPublicacao" min="1"
 				th:value="${livro.anoPublicacao}" th:readonly="${!editar}">
 		</div>
 		<div class="form-group">
 			<label for="descricao">Descrição:</label>
-			<textarea class="form-control" id="descricao" name="descricao" th:value="${livro.descricao}"
+			<textarea class="form-control" id="descricao" name="descricao" th:text="${livro.descricao}"
 				th:readonly="${!editar}"></textarea>
 		</div>
 		<button th:if="${editar}" class="btn btn-success" type="submit">Salvar</button>
@@ -290,15 +290,15 @@
 		<h3>Incluir Veículo</h3>
 		<div class="form-group">
 			<label for="codigo">Código:</label>
-			<input type="number" class="form-control" id="codigo" name="codigo">
+			<input type="number" class="form-control" id="codigo" name="codigo" min="0">
 		</div>
 		<div class="form-group">
 			<label for="modelo">Modelo:</label>
-			<input type="text" class="form-control" id="modelo" name="modelo">
+			<input type="text" class="form-control" id="modelo" name="modelo" minlength="3" maxlength="50">
 		</div>
 		<div class="form-group">
 			<label for="marca">Marca:</label>
-			<input type="text" class="form-control" id="marca" name="marca">
+			<input type="text" class="form-control" id="marca" name="marca" minlength="3" maxlength="50">
 		</div>
 		<div class="form-group">
 			<label for="descricao">Descrição:</label>
@@ -321,7 +321,7 @@
 		</div>
 		<div class="form-group">
 			<label for="preco">Preço:</label>
-			<input type="number" class="form-control" id="preco" name="preco">
+			<input type="number" class="form-control" id="preco" name="preco" min="0.01" step="0.01">
 		</div>
 		<div class="form-group">
 			<label for="ano">Ano:</label>
@@ -330,28 +330,28 @@
 		<button class="btn btn-success" type="submit">Incluir</button>
 	</form>
 
-	<form th:if="${rota == 'veiculos_unico'}" method="POST" action="@{'/veiculos/' + ${id}}">
-		<h3 th:text="@{${veiculo.marca} - ${veiculo.modelo} - ${veiculo.ano}}" />
-		<a th:href="@{/veiculos}">Voltar</a>
+	<form th:if="${rota == 'veiculos_unico'}" method="POST" th:action="@{'/veiculos/' + ${id}}">
+		<h3 th:text="${veiculo.modelo}" />
+		<a href="/veiculos/lista">Voltar</a>
 		<a th:if="${!editar}" th:href="@{/veiculos/{itemId}/editar(rota=${rota}, itemId=${id})}">editar</a>
 		<div class="form-group">
 			<label for="codigo">Código:</label>
-			<input type="number" class="form-control" id="codigo" name="codigo" th:value="${veiculo.codigo}"
+			<input type="number" class="form-control" id="codigo" name="codigo" min="0" th:value="${veiculo.codigo}"
 				th:readonly="${!editar}">
 		</div>
 		<div class="form-group">
 			<label for="modelo">Modelo:</label>
-			<input type="text" class="form-control" id="modelo" name="modelo" th:value="${veiculo.modelo}"
-				th:readonly="${!editar}">
+			<input type="text" class="form-control" id="modelo" name="modelo" minlength="3" maxlength="50"
+				th:value="${veiculo.modelo}" th:readonly="${!editar}">
 		</div>
 		<div class="form-group">
 			<label for="marca">Marca:</label>
-			<input type="text" class="form-control" id="marca" name="marca" th:value="${veiculo.marca}"
-				th:readonly="${!editar}">
+			<input type="text" class="form-control" id="marca" name="marca" th:value="${veiculo.marca}" minlength="3"
+				maxlength="50" th:readonly="${!editar}">
 		</div>
 		<div class="form-group">
 			<label for="descricao">Descrição:</label>
-			<textarea class="form-control" id="descricao" name="descricao" th:value="${veiculo.descricao}"
+			<textarea class="form-control" id="descricao" name="descricao" th:text="${veiculo.descricao}"
 				th:readonly="${!editar}"></textarea>
 		</div>
 		<div class="form-group">
@@ -373,14 +373,14 @@
 		</div>
 		<div class="form-group">
 			<label for="preco">Preço:</label>
-			<input type="number" class="form-control" id="preco" name="preco" th:value="${veiculo.preco}"
-				th:readonly="${!editar}">
+			<input type="number" class="form-control" id="preco" name="preco" min="0.01" step="0.01"
+				th:value="${veiculo.preco}" th:readonly="${!editar}">
 		</div>
 		<div class="form-group">
 			<label for="ano">Ano:</label>
-			<input type="number" class="form-control" id="ano" name="ano" th:value="${veiculo.ano}"
+			<input type="number" class="form-control" id="ano" name="ano" th:value="${veiculo.ano}" min="0"
 				th:readonly="${!editar}">
-		</div>ano
+		</div>
 		<button th:if="${editar}" class="btn btn-success" type="submit">Salvar</button>
 	</form>
 </div>

@@ -101,7 +101,7 @@ public class VeiculoController {
 			@ModelAttribute Veiculo veiculo) {
 		veiculoService.atualizarPorId(id, veiculo);
 
-		return "redirect:/livros/lista";
+		return "redirect:/veiculos/".concat(id.toString());
 	}
 
 	@GetMapping(value = "/veiculos/{id}/excluir")

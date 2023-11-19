@@ -101,7 +101,7 @@ public class LivroController {
 			@ModelAttribute Livro livro) {
 		livroService.atualizarPorId(id, livro);
 
-		return "redirect:/livros/lista";
+		return "redirect:/livros/".concat(id.toString());
 	}
 
 	@GetMapping(value = "/livros/{id}/excluir")
