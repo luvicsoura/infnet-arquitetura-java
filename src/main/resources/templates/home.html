@@ -179,6 +179,21 @@
 		</table>
 	</div>
 
+	<div th:if="${#strings.isEmpty(root)}">
+		<ul>
+			<li>
+				<a href="/livros/novo">
+					<button class="btn btn-primary">Adicionar Livro</button>
+				</a>
+			</li>
+			<li>
+				<a href="/veiculos/novo">
+					<button class="btn btn-primary">Adicionar Veiculo</button>
+				</a>
+			</li>
+		</ul>
+	</div>
+
 	<form th:if="${rota == 'livros_novo'}" method="POST" action="/livros">
 		<h3>Incluir Livro</h3>
 		<div class="form-group">
